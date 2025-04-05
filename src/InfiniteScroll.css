@@ -1,0 +1,5 @@
+.is-container {
+  height: 600px;
+  overflow: auto;
+  border: 1px solid gray;
+}
