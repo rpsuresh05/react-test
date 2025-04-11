@@ -1,0 +1,65 @@
+button {
+  background-color: transparent;
+  border-radius: 50%;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border: 2px solid white;
+  font-size: 22px;
+}
+
+img {
+  /* width: 100%;
+  height: 100%; */
+
+  object-fit: contain;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel {
+  position: relative;
+  width: 600px;
+  height: 400px;
+}
+
+.left-btn {
+  position: absolute;
+  left: 10px;
+  top: 45%;
+  cursor: pointer;
+}
+
+.right-btn {
+  position: absolute;
+  right: 10px;
+  top: 45%;
+  cursor: pointer;
+}
+
+.span-box {
+  position: absolute;
+  bottom: 15px;
+  left: 43%;
+}
+
+.marker {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 3px;
+  display: inline-block;
+  cursor: pointer;
+}
+.selected {
+  background-color: white;
+}
+.unselected {
+  background-color: grey;
+}
