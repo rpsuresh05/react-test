@@ -64,7 +64,12 @@ const InfiniteScroll = () => {
   console.log(arr, "ARR>>");
   return (
     <>
-      <div className="is-container">
+      <div
+        style={{
+          backgroundColor: triggerRef.current ? "lightsalmon" : "white",
+        }}
+        className="is-container"
+      >
         {arr.map((each, idx) => (
           <p key={idx}>{each.name}</p>
         ))}

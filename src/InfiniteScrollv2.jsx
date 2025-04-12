@@ -1,23 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import "./InfiniteScroll.css";
 
-const InfiniteScrollv2 = () => {
+const InfiniteScroll = () => {
   const [page, setPage] = useState(1);
   const [arr, setArr] = useState([]);
 
-  // const triggerRef = useRef(false);
-  // console.log(triggerRef.current);
-  const fetchData = async function (pageNo) {
-    console.log("page change fetchData", pageNo);
-    const response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon?limit=${20}&offset=${
-        (pageNo - 1) * 20
-      }`
-    );
-    const data = await response.json();
+  const [isFetching, setFetching] = useState(false);
 
-    setArr([...arr, ...data.results]);
-  };
+  // let isFetching = false;
+
   useEffect(() => {
     const handleScroll = function (e) {
       let div = e.target;
@@ -30,36 +21,49 @@ const InfiniteScrollv2 = () => {
         },
         "SCRL"
       );
-      if (div.clientHeight + 40 + div.scrollTop >= div.scrollHeight) {
+      if (
+        div.clientHeight + 40 + div.scrollTop >= div.scrollHeight &&
+        !isFetching
+      ) {
         console.log("\tIncreasing page", page);
-        setPage((page) => {
-          const next = page + 1;
-          console.log("NEXT>>>", next);
-          fetchData(next).then((data) => {});
-
-          return next;
-        });
+        setFetching(true);
+        setPage((page) => page + 1);
+      } else {
+        // triggered = false;
       }
     };
     const divElement = document.querySelector("div.is-container");
 
     divElement.addEventListener("scroll", handleScroll);
-    fetchData(1);
+
     return () => {
       divElement.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isFetching]);
 
-  // useEffect(() => {
+  useEffect(() => {
+    const fetchData = async function () {
+      console.log("page change fetchData", page);
+      const response = await fetch(
+        `https://pokeapi.co/api/v2/pokemon?limit=${20}&offset=${
+          (page - 1) * 20
+        }`
+      );
+      const data = await response.json();
 
-  //   console.log("page change", page);
-  //   fetchData();
-
-  // }, [page]);
+      setArr([...arr, ...data.results]);
+      setFetching(false);
+    };
+    console.log("page change", page);
+    fetchData();
+  }, [page]);
   console.log(arr, "ARR>>");
   return (
     <>
-      <div className="is-container">
+      <div
+        style={{ backgroundColor: isFetching ? "lightsalmon" : "white" }}
+        className="is-container"
+      >
         {arr.map((each, idx) => (
           <p key={idx}>{each.name}</p>
         ))}
@@ -68,4 +72,4 @@ const InfiniteScrollv2 = () => {
   );
 };
 
-export default InfiniteScrollv2;
+export default InfiniteScroll;

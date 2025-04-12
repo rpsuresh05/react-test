@@ -6,19 +6,17 @@ img {
   /* width: 100%;
   height: 100%; */
 
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  inset: 0;
-  transition: transform 2s;
+  /* position: absolute; */
+  /* transition: transform 1s; */
+
+  /* object-fit: contain; */
+  /* inset: 0; */
 }
 
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
-
   height: 100vh;
   width: 100vw;
 }
@@ -28,7 +26,16 @@ img {
   width: 600px;
   height: 400px;
   background-color: black;
+  display: flex;
+  flex-direction: row;
   overflow: hidden;
+}
+
+.carousel img {
+  flex-shrink: 0;
+  width: 600px; /* Match the carousel width */
+  height: 100%; /* Optional: Ensure images fill the height */
+  transition: transform 0.5s ease-in-out; /* Smooth sliding effect */
 }
 
 button {
@@ -68,6 +75,7 @@ button {
   margin: 3px;
   display: inline-block;
   cursor: pointer;
+  transition: background 1s;
 }
 .selected {
   background-color: white;

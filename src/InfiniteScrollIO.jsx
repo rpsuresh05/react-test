@@ -4,34 +4,22 @@ const InfiniteScrollIO = () => {
   // const [page, setPage] = useState(1);
   const [arr, setArr] = useState([]);
 
-  const triggerRef = useRef(false);
-  const ref = useRef(null);
-
-  const observer = new IntersectionObserver((entries) => {
-    const lastElement = entries[0];
-    console.log("IO_Entries", entries);
-    console.log("IO_Page", page);
-
-    if (lastElement.isIntersecting && lastElement) {
-      console.log("IO_isIntersecting");
-      observer.unobserve(lastElement.target);
-      fetchData(page + 1).then((data) => {
-        page += 1;
-        console.log("IO_isIntersecting fetchData", page);
-        // observer.observe(document.getElementById(`listItem-${arr.length - 1}`));
-      });
-    }
-  });
-
-  // useEffect(() => {
-  //   console.log("Enter IO_Ref", ref.current);
-  //   if (ref.current) {
-  //     console.log("IO_Ref", ref.current);
-  //     observer.observe(ref.current);
-  //   }
-  // }, [ref.current]);
-
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const lastElement = entries[0];
+      console.log("IO_Entries", entries);
+      console.log("IO_Page", page);
+
+      if (lastElement.isIntersecting && lastElement) {
+        console.log("IO_isIntersecting");
+        observer.unobserve(lastElement.target);
+        fetchData(page + 1).then((data) => {
+          page += 1;
+          console.log("IO_isIntersecting fetchData", page);
+          // observer.observe(document.getElementById(`listItem-${arr.length - 1}`));
+        });
+      }
+    });
     console.log(
       "Enter IO_Ref arr",
       document.getElementById(`listItem-${arr.length - 1}`)
@@ -39,6 +27,9 @@ const InfiniteScrollIO = () => {
     if (document.getElementById(`listItem-${arr.length - 1}`)) {
       observer.observe(document.getElementById(`listItem-${arr.length - 1}`));
     }
+    return () => {
+      if (observer.current) observer.current.disconnect();
+    };
   }, [arr]);
 
   const fetchData = async function (pageNo) {
@@ -51,7 +42,6 @@ const InfiniteScrollIO = () => {
     const data = await response.json();
 
     setArr([...arr, ...data.results]);
-    triggerRef.current = false;
   };
 
   useEffect(() => {
@@ -63,7 +53,7 @@ const InfiniteScrollIO = () => {
     <>
       <div
         style={{
-          backgroundColor: triggerRef.current ? "lightsalmon" : "white",
+          backgroundColor: false ? "lightsalmon" : "white",
         }}
         className="is-container"
       >
