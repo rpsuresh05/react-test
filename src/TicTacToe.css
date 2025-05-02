@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.board {
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+
+  border-bottom: 1px solid red;
+}
+
+.row:first-of-type {
+  border-top: 1px solid red;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  border-right: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell:first-of-type {
+  border-left: 1px solid red;
+}

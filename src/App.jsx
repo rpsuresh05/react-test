@@ -2,26 +2,28 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import Two from "./Two";
-import RGB from "./RGB";
-import BasicsOfMotion from "./BasicsOfMotion";
-import Gestures from "./Gestures";
-import AnimationControl from "./AnimationControl";
-import ViewBasedAnimations from "./ViewBasedAnimations";
-import ScrollAnimations from "./ScrollAnimations";
-import MSInput from "./MSInput";
-import InfiniteScroll from "./InfiniteScroll";
-import InfinitScroll1 from "./IS1";
-import InfiniteScrollv2 from "./InfiniteScrollv2";
-import InfiniteScrollv3 from "./InfiniteScrollv3";
-import { ISV4 } from "./ISV4";
-import InfiniteScrollIO from "./InfiniteScrollIO";
-import InfiniteScrollIO2 from "./ISIO2";
-import ISIOWithRef from "./ISIOWithRef";
-import WDSInfiniteScroll from "./WDS_InfiniteScroll";
+// import Two from "./Two";
+// import RGB from "./RGB";
+// import BasicsOfMotion from "./BasicsOfMotion";
+// import Gestures from "./Gestures";
+// import AnimationControl from "./AnimationControl";
+// import ViewBasedAnimations from "./ViewBasedAnimations";
+// import ScrollAnimations from "./ScrollAnimations";
+// import MSInput from "./MSInput";
+// import InfiniteScroll from "./InfiniteScroll";
+// import InfinitScroll1 from "./IS1";
+// import InfiniteScrollv2 from "./InfiniteScrollv2";
+// import InfiniteScrollv3 from "./InfiniteScrollv3";
+// import { ISV4 } from "./ISV4";
+// import InfiniteScrollIO from "./InfiniteScrollIO";
+// import InfiniteScrollIO2 from "./ISIO2";
+// import ISIOWithRef from "./ISIOWithRef";
+// import WDSInfiniteScroll from "./WDS_InfiniteScroll";
 // import ImageCarousel from "./ImageCarousel";
-import ImageCarouselv2 from "./ImageCarouselv2";
+// import ImageCarouselv2 from "./ImageCarouselv2";
+import TicTacToeN from "./TicTacToeN";
 import TicTacToe from "./TicTacToe";
+import ModalWrapper from "./ModalWrapper";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -69,7 +71,9 @@ function App() {
         ]}
       /> */}
 
-      <TicTacToe />
+      {/* <TicTacToe /> */}
+      <ModalWrapper />
+
       {/* <InfiniteScrollv2 /> */}
       {/* <InfiniteScrollv3 /> */}
       {/* <ISV4 /> */}
