@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
 import Modal from "./Modal";
 
 function ModalWrapper() {
   const [open, setOpen] = React.useState(false);
+  const triggerRef = useRef(null);
 
   return (
     <>
-      <Modal open={open} handleClose={() => setOpen(false)}>
+      <Modal
+        triggerRef={triggerRef}
+        open={open}
+        handleClose={() => setOpen(false)}
+      >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
         error corporis, doloribus itaque qui veritatis natus atque pariatur
         consequatur tempore quisquam autem eaque repellendus fuga quia ea saepe,
@@ -40,7 +45,14 @@ function ModalWrapper() {
         pariatur, sapiente, et incidunt quos aliquam, deleniti adipisci delectus
         nulla. Tempore libero suscipit dolor similique fugit.
       </p>
-      <button onClick={() => setOpen(true)}>Open 1</button>
+      <button
+        aria-haspopup="true"
+        aria-expanded={open}
+        ref={triggerRef}
+        onClick={() => setOpen(true)}
+      >
+        Open 1
+      </button>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non odit eos
         iure sunt sapiente a blanditiis recusandae vel optio pariatur. Nesciunt
