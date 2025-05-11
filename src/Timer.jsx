@@ -1,7 +1,7 @@
 import useTimer from "./useTimer";
 
 function Timer() {
-  const { seconds, start, stop, isRunning } = useTimer(15);
+  const { seconds, start, stop, isRunning } = useTimer(5);
 
   return (
     <>

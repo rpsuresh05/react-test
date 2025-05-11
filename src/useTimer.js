@@ -8,15 +8,15 @@ function useTimer(totalTime) {
 
   const start = () => {
     const timerId = setInterval(() => {
-      setTime((time) => {
-        if (time - 1 == 0) stop();
-
-        return time - 1;
+      setTime((t) => {
+        if (t - 1 == 0) stop();
+        return t - 1;
       });
     }, 1000);
     timerRef.current = timerId;
     setIsRunning(true);
   };
+
   const stop = () => {
     clearInterval(timerRef.current);
     setIsRunning(false);
