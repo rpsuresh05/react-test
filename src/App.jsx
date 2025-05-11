@@ -21,9 +21,15 @@ import "./App.css";
 // import WDSInfiniteScroll from "./WDS_InfiniteScroll";
 // import ImageCarousel from "./ImageCarousel";
 // import ImageCarouselv2 from "./ImageCarouselv2";
-import TicTacToeN from "./TicTacToeN";
-import TicTacToe from "./TicTacToe";
-import ModalWrapper from "./ModalWrapper";
+// import TicTacToeN from "./TicTacToeN";
+// import TicTacToe from "./TicTacToe";
+// import ModalWrapper from "./ModalWrapper";
+// import PortalWrapper from "./PortalWrapper";
+// import UncontrolledForm from "./UncontrolledForm";
+import InputOTP from "./InputOTP";
+import OtpInput from "./InputOTP2";
+import OverlappingCircles from "./OverlappingCircles";
+import Timer from "./Timer";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -70,10 +76,14 @@ function App() {
           },
         ]}
       /> */}
-
+      {/* <InputOTP />
+      <OtpInput /> */}
+      {/* <OverlappingCircles /> */}
+      <Timer />
       {/* <TicTacToe /> */}
-      <ModalWrapper />
-
+      {/* <ModalWrapper /> */}
+      {/* <PortalWrapper /> */}
+      {/* <UncontrolledForm /> */}
       {/* <InfiniteScrollv2 /> */}
       {/* <InfiniteScrollv3 /> */}
       {/* <ISV4 /> */}
