@@ -30,6 +30,7 @@ import InputOTP from "./InputOTP";
 import OtpInput from "./InputOTP2";
 import OverlappingCircles from "./OverlappingCircles";
 import Timer from "./Timer";
+import TrafficLights from "./TrafficLights";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -79,7 +80,8 @@ function App() {
       {/* <InputOTP />
       <OtpInput /> */}
       {/* <OverlappingCircles /> */}
-      <Timer />
+      {/* <Timer /> */}
+      <TrafficLights />
       {/* <TicTacToe /> */}
       {/* <ModalWrapper /> */}
       {/* <PortalWrapper /> */}
